@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<style>
+    .shape {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        margin: 20px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    #typing-area {
+        width: 350px;
+        height: 900px;
+        position: absolute;
+        top: 20px;
+        left: 1500px;
+        resize: none;
+        font-family: 'Lucida Console', monospace;
+        font-size: 14px;
+    }
+	#bikeshareInfo {
+        width: 160px;
+        height: 90px;
+        position: absolute;
+        top: 450px;
+        left: 550px;
+        border: 2px solid black;
+        cursor: pointer;
+        overflow-y: auto;
+        background-color: white;
+        padding: 5px;
+        box-sizing: border-box;	
+        background-color: #f4f4f4;
+    }
+	#bikeCoordinates {
+        width: 300px;
+        height: 240px;
+        position: absolute;
+        top: 450px;
+        left: 720px;
+        border: 2px solid black;
+        height: auto;
+        overflow-y: auto;
+        box-sizing: border-box;	
+        background-color: #f4f4f4;
+    }
+</style>
+</head>
+<body>
+
+<!<div class="shape" style="width: 10px; height: 10px; background-color: blue; position: absolute; top: 50px; left: 50px;" onclick="executePostRequests(['http://192.168.0.6:8060/keypress/Left', 'http://192.168.0.6:8060/keypress/Up']);"></div>
+
+<div class="controller" style="position: absolute; top: 40px; left: 40px;">
+	<div class="shape" style="width: 420px; height: 540px; background-color: white; position: absolute; top: -20px; left: -20px; display: flex; justify-content: center; align-items: center; border: 2px solid #dfe3de;"></div>
+    <div class="shape" style="width: 80px; height: 40px; background-color: #6f1ab1; position: absolute; top: 0px; left: 40px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Home');">Home</div>
+    <div class="shape" style="width: 80px; height: 40px; background-color: #6f1ab1; position: absolute; top: 0px; left: 140px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Back');">Back</div>
+    <div class="shape" style="width: 80px; height: 80px; background-color: #6f1ab1; position: absolute; top: 60px; left: 90px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Up');">Up</div>
+    <div class="shape" style="width: 80px; height: 80px; background-color: #6f1ab1; position: absolute; top: 150px; left: 0px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Left');">Left</div>
+    <div class="shape" style="width: 80px; height: 80px; background-color: #6f1ab1; position: absolute; top: 150px; left: 90px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Select');">Select</div>
+    <div class="shape" style="width: 80px; height: 80px; background-color: #6f1ab1; position: absolute; top: 150px; left: 180px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Right');">Right</div>
+    <div class="shape" style="width: 80px; height: 80px; background-color: #6f1ab1; position: absolute; top: 240px; left: 90px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Down');">Down</div>
+    <div class="shape" style="width: 80px; height: 40px; background-color: #6f1ab1; position: absolute; top: 330px; left: 40px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/InstantReplay');">Replay</div>
+    <div class="shape" style="width: 80px; height: 40px; background-color: #6f1ab1; position: absolute; top: 330px; left: 140px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Info');">Info</div>
+    <div class="shape" style="width: 40px; height: 40px; background-color: #6f1ab1; position: absolute; top: 380px; left: 40px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Rev');">Rev</div>
+    <div class="shape" style="width: 80px; height: 40px; background-color: #6f1ab1; position: absolute; top: 380px; left: 90px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Play');">Play</div>
+    <div class="shape" style="width: 40px; height: 40px; background-color: #6f1ab1; position: absolute; top: 380px; left: 180px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Fwd');">Fwd</div>   
+	<div class="shape" style="width: 90px; height: 90px; background-color: #e5a00d; position: absolute; top: 45px; left: 290px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/launch/13535');">Plex</div>
+	<div class="shape" style="width: 90px; height: 90px; background-color: #1db954; position: absolute; top: 145px; left: 290px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/launch/19977');">Spotify</div>
+	<div class="shape" style="width: 90px; height: 90px; background-color: white; position: absolute; top: 245px; left: 290px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequests(['http://192.168.0.6:8060/keypress/Home', 'http://192.168.0.6:8060/keypress/Home', 'http://192.168.0.6:8060/keypress/PowerOff']);">Off</div>
+	<div class="shape" style="width: 120px; height: 40px; background-color: #1db954; position: absolute; top: 460px; left: 0px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Rev');">Last Song</div>
+	<div class="shape" style="width: 120px; height: 40px; background-color: #1db954; position: absolute; top: 460px; left: 130px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Play');">Play/Pause</div>
+	<div class="shape" style="width: 120px; height: 40px; background-color: #1db954; position: absolute; top: 460px; left: 260px; display: flex; justify-content: center; align-items: center;" onclick="executePostRequest('http://192.168.0.6:8060/keypress/Fwd');">Next Song</div>
+</div>
+
+<div class="controller" style="position: absolute; top: 280px; left: 520px;">
+  <div class="shape" style="width: 120px; height: 40px; background-color: #5759be; position: absolute; top: 0px; left: 0px; display: flex; justify-content: center; align-items: center;"> <a href="http://192.168.0.18:5055/" style="text-decoration: none; color: white; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">overseerr</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; background-color: #2c91b2; position: absolute; top: 0px; left: 130px; display: flex; justify-content: center; align-items: center;"> <a href="http://192.168.0.18:8989/" style="text-decoration: none; color: black; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">Sonarr</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; background-color: #fbc141; position: absolute; top: 0px; left: 260px; display: flex; justify-content: center; align-items: center;"> <a href="http://192.168.0.18:7878/" style="text-decoration: none; color: black; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">Radarr</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; background-color: #becd7f; position: absolute; top: 0px; left: 390px; display: flex; justify-content: center; align-items: center;"> <a href="http://192.168.0.18:8000/#!/channels" style="text-decoration: none; color: black; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">DizqueTV</a> </div>
+</div>
+
+
+
+<div class="controller" style="position: absolute; top: 580px; left: 520px;">
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: #6aa967; top: 0px; left: 0px; display: flex; justify-content: center; align-items: center;"> <a href="https://www.nytimes.com/games/wordle/index.html" style="text-decoration: none; color: #ceaf43; font-weight: bold;">Wordle</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: black; top: 0px; left: 130px; display: flex; justify-content: center; align-items: center;"> <a href="https://www.nytimes.com/crosswords/game/mini" style="text-decoration: none; color: white;">Mini</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: #b3a4fb; top: 0px; left: 260px; display: flex; justify-content: center; align-items: center;"> <a href="https://www.nytimes.com/games/connections" style="text-decoration: none; color: black;">Connections</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: #af0036; top: 0px; left: 390px; display: flex; justify-content: center; align-items: center;"> <a href="https://murdle.com/" style="text-decoration: none; color: black;">Murdle</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: #6aa967; top: 50px; left: 0px; display: flex; justify-content: center; align-items: center;"> <a href="https://histordle.com/yeardle/" style="text-decoration: none; color: white; font-weight: bold;">Yeardle</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: #6aa967; top: 50px; left: 130px; display: flex; justify-content: center; align-items: center;"> <a href="https://histordle.com/popcultured/" style="text-decoration: none; color: white; font-weight: bold;">PopCultured</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: black; top: 50px; left: 260px; display: flex; justify-content: center; align-items: center;"> <a href="https://travle.earth/" style="text-decoration: none; color: #d2bd98; font-weight: bold;">Travle</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: white; top: 50px; left: 390px; display: flex; justify-content: center; align-items: center;"> <a href="https://nerdlegame.com/" style="text-decoration: none; color: #810959;">nerdle</a> </div>
+  <div class="shape" style="width: 120px; height: 40px; position: absolute; background-color: white; top: 100px; left: 0px; display: flex; justify-content: center; align-items: center;"> <a href="https://www.oneuppuzzle.com/" style="text-decoration: none; color: #222222;">OneUpPuzzle</a> </div>
+</div>
+
+<div class="controller" style="position: absolute; top: 20px; left: 470px;">
+	<div class="shape" style="width: 815px; height: 240px; background-color: white; position: absolute; top: 0px; left: 0px; display: flex; justify-content: center; align-items: center; border: 2px solid #dfe3de;"></div>
+	<div id="metroGroup1" class="column" style="position: absolute; width: 250px; height: 90px; top: 40px; left: 305px; border: 2px solid black; cursor: pointer; overflow-y: auto; background-color: black; padding: 5px; box-sizing: border-box; margin: 0;"></div>
+	<div id="metroGroup2" class="column" style="position: absolute; width: 250px; height: 90px; top: 40px; left: 40px; border: 2px solid black; cursor: pointer; overflow-y: auto; background-color: black; padding: 5px; box-sizing: border-box; margin: 0;"></div>
+	<div id="amtrakData" style="width: 250px; height: 90px; position: absolute; top: 40px; left: 570px; border: 2px solid black; cursor: pointer; overflow-y: auto; background-color: #f4f4f4; padding: 5px; box-sizing: border-box;"></div>
+	<div id="rocketLaunchData" style="white-space: pre-line; width: 766px; height: 90px; position: absolute; top: 140px; left: 40px; padding: 5px; border: 2px solid black; background-color: #f9f9f9;">Loading...</div>
+</div>
+
+<textarea id="typing-area" name="typingArea" rows="10" cols="50">
+Type your text here...
+</textarea>
+
+<script>
+function executePostRequest(url) {
+	fetch(url, { method: 'POST' })
+	.then(response => {
+		console.log(response.ok ? 'cURL API POST request executed successfully' : 'Failed to execute cURL API POST request');
+	})
+	.catch(error => {
+		console.error('Error executing cURL API POST request:', error);
+	});
+}
+function executePostRequests(urls) {
+	urls.forEach(executePostRequest);
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    function updateMetroData() {
+        const url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/B05";
+        fetch(url, { headers: { 'api_key': '9a3f71993b7a4a048ee8eee904364cd8' } })
+        .then(response => response.json())
+        .then(data => {
+            ['metroGroup1', 'metroGroup2'].forEach(groupId => {
+                const container = document.getElementById(groupId);
+                container.innerHTML = ''; // Clear existing content
+                const filteredTrains = data.Trains.filter(train => train.Group === groupId[groupId.length - 1]);
+
+                if (filteredTrains.length === 0) {
+                    container.textContent = 'No train data available for ' + groupId.charAt(0).toUpperCase() + groupId.slice(1);
+                } else {
+                    const info = document.createElement('p');
+                    info.innerHTML = `<span style="color: #DA291C;font-weight: bold;">LN &nbsp;&nbsp;&nbsp; CAR &nbsp;&nbsp;DEST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIN</span>`;
+                    info.style.margin = '0'; // Add margin style directly
+                    container.appendChild(info);
+                    filteredTrains.forEach(train => {
+                        const info = document.createElement('p');
+                        info.innerHTML = `<span style="color: #FFA300;font-weight: bold;">${train.Line} &nbsp;&nbsp;&nbsp; ${train.Car}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${train.Destination}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${train.Min}</span>`;
+                        info.style.margin = '0'; // Add margin style directly
+                        container.appendChild(info);
+                    });
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            ['metroGroup1', 'metroGroup2'].forEach(id => document.getElementById(id).textContent = 'Failed to load ETA data for ' + id.charAt(0).toUpperCase() + id.slice(1));
+        });
+    }
+    updateMetroData();
+    setInterval(updateMetroData, 60000);
+});
+</script>
+
+<script>
+const apiUrl = "https://api-v3.amtraker.com/v3/trains";
+const updateAmtrakData = () => {
+	axios.get(apiUrl)
+		.then(response => {
+			if (response.status === 200) {
+				const data = response.data;
+				const now = new Date();
+				const getNextStation = (stations) => {
+					for (let i = 0; i < stations.length; i++) {
+						const arrivalTime = new Date(stations[i]["arr"]);
+						if (arrivalTime > now) {
+							return { name: stations[i]["name"], time: arrivalTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) };
+						}
+					}
+					return null;
+				};
+				document.getElementById('amtrakData').innerHTML = `
+				<div style="display: flex; justify-content: space-between; width: 100%;">
+				<span>Train</span>
+				<span>Destination</span>
+				</div>`;
+				if (data["30"] && data["30"][0]["trainState"] === "Active") {
+					let southboundData = `<div class="amtrakInfo"><span>AMTK  30</span>`;
+					const nextStation = getNextStation(data["30"][0]["stations"]);
+					if (nextStation) {
+						southboundData += `<div style="display: flex; justify-content: space-between; width: 100%;"><span> - ${nextStation.name} ${nextStation.time}</span>`;
+					}
+					southboundData += `</div>`;
+					document.getElementById('amtrakData').innerHTML += southboundData;
+				}
+				if (data["29"] && data["29"][0]["trainState"] === "Active") {
+					let northboundData = `<div class="amtrakInfo"><span>AMTK  29</span>`;
+					const nextStation = getNextStation(data["29"][0]["stations"]);
+					if (nextStation) {
+						northboundData += `<div style="float: right;"> ${nextStation.name} ${nextStation.time}</div>`;
+					}
+					northboundData += `</div>`;
+					document.getElementById('amtrakData').innerHTML += northboundData;
+				}
+			}
+		})
+		.catch(error => {
+			console.error("Error fetching data:", error);
+		});
+};
+updateAmtrakData();
+setInterval(updateAmtrakData, 6000);
+</script>	
+
+<script>
+const LaunchapiUrl = 'https://fdo.rocketlaunch.live/json/launches/next/5';
+async function fetchLaunchData() {
+	try {
+		const launchresponse = await fetch(LaunchapiUrl);
+		if (!launchresponse.ok) {
+			throw new Error(`HTTP error! Status: ${launchresponse.status}`);
+		}
+		const Launchdata = await launchresponse.json();
+		console.log(Launchdata); // Debugging output
+		displayLaunches(Launchdata.result);
+	} catch (error) {
+		console.error('Error fetching launch data:', error);
+		document.getElementById('rocketLaunchData').innerText = 'Failed to load data.';
+	}
+}
+function displayLaunches(launches) {
+	const launchesDiv = document.getElementById('rocketLaunchData');
+	launchesDiv.innerHTML = '';  // Clear existing content
+	let launchInfo = '';
+	launches.forEach(launch => {
+		launchInfo += `<strong>${launch.provider.name} - ${launch.name}</strong> - ${new Date(launch.t0).toLocaleString()} - ${launch.pad.location.name}
+		`;
+	});
+	launchesDiv.innerHTML = launchInfo;
+}
+document.addEventListener("DOMContentLoaded", fetchLaunchData);
+setInterval(fetchLaunchData, 6000); // Refresh data every 10 minutes (600000 milliseconds)
+</script>
+
+<div id="bikeshareInfo">Loading bikeshare info...</div>
+<script>
+async function updateBikeshareData() {
+	const stationName = "Hamlin & 7th St NE";
+	const urlStationInfo = "https://gbfs.capitalbikeshare.com/gbfs/en/station_information.json";
+	const urlStationStatus = "https://gbfs.capitalbikeshare.com/gbfs/en/station_status.json";
+	try {
+		const infoResponse = await fetch(urlStationInfo);
+		const infoData = await infoResponse.json();
+		const station = infoData.data.stations.find(station => station.name === stationName);
+		const statusResponse = await fetch(urlStationStatus);
+		const statusData = await statusResponse.json();
+		const stationStatus = statusData.data.stations.find(status => status.station_id === station.station_id);
+		const ebikeAvailable = stationStatus.num_ebikes_available;
+		const regBikeAvailable = stationStatus.num_bikes_available - ebikeAvailable;
+		const docksAvailable = stationStatus.num_docks_available;
+		document.getElementById('bikeshareInfo').innerHTML = `${stationName}<br>
+			E-Bikes: ${ebikeAvailable}<br>
+			Bikes: ${regBikeAvailable}<br>
+			Docks: ${docksAvailable}`;
+	} catch (error) {
+		console.error('Failed to fetch bikeshare data:', error);
+		document.getElementById('bikeshareInfo').innerText = 'Failed to load data.';
+	}
+}
+document.addEventListener("DOMContentLoaded", updateBikeshareData);
+setInterval(updateBikeshareData, 60000);
+</script>
+	
+<div id="bikeCoordinates"></div>
+<script>
+async function updateBikeCoordinates() {
+	const apiUrl = 'https://gbfs.lyft.com/gbfs/2.3/dca-cabi/en/free_bike_status.json';
+	const targetLatitude = 38.929417;
+	const targetLongitude = -76.99475;
+	const tolerance = 0.002;
+	try {
+		const response = await fetch(apiUrl);
+		const data = await response.json();
+		const bikes = data.data.bikes;
+		const filteredCoordinates = bikes.filter(bike =>
+			Math.abs(bike.lat - targetLatitude) <= tolerance &&
+			Math.abs(bike.lon - targetLongitude) <= tolerance
+		).map(bike => `Lat: ${bike.lat}, Lon: ${bike.lon}`);
+
+		const coordinatesHtml = filteredCoordinates.length > 0 ? 
+			filteredCoordinates.join('<br>') : 
+			'No bikes found within the specified range.';
+		document.getElementById('bikeCoordinates').innerHTML = coordinatesHtml;
+	} catch (error) {
+		console.error('Failed to fetch bike data:', error);
+		document.getElementById('bikeCoordinates').innerText = 'Failed to load data.';
+	}
+}
+document.addEventListener("DOMContentLoaded", updateBikeCoordinates);
+setInterval(updateBikeCoordinates, 60000);
+</script>
+
+<div id="poems" class="column" style="position: absolute; width: 450px; height: 40px; top: 350px; left: 550px; border: 2px solid black; cursor: pointer; overflow-y: auto; background-color: white; padding: 5px; box-sizing: border-box; margin: 0;"></div>
+<script>
+	window.onload = function() {
+		const strings = [
+			"The New Colossus - Emma Lazarus",
+			"Jabberwocky - Lewis Caroll",
+			"O' Were My Love Yon Lilac Fair - Robert Burns",
+			"Webb Telescope - Peter O'Shamseign",
+			"Ozymandias - Percy Bysshe Shelley",
+			"Essay of Wood - James Richardson",
+			"Riddle of Strider - JRR Tolkien",
+			"Letter to the Person Who Carved His Initials into the Oldest Living Longleaf Pine in North America - Matthew Olzmann",
+			"This Be The Verse - Philip Larkin"
+		];
+		const randomIndex = Math.floor(Math.random() * strings.length);
+		const randomString = strings[randomIndex];
+		document.getElementById("poems").textContent = randomString;
+	};
+</script>
+	
+</head>
+</html>
+
