@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+        if (window.parent) {
+            if (/wpcom-thirdparty-cookie-check=ok/.test(document.cookie)) {
+                window.parent.postMessage('WPCOM:3PC:allowed', '*');
+            } else {
+                window.parent.postMessage('WPCOM:3PC:blocked', '*');
+            }
+            document.cookie = 'wpcom-thirdparty-cookie-check=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+    </script>
+
+
+</body></html>
