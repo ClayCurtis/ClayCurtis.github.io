@@ -1,7 +1,348 @@
+
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm under construction 🚧</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <style>
+        .dropdown-content {
+            display: block; /* Set initial display state to block */
+            display: none; /* Hide the dropdown content */
+        }
+        #sectionHeading {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+		body {
+			overflow-y: scroll;
+		}
+        .container {
+            max-width: 650px;
+            margin: 0 auto; 
+            padding: 0 20px;
+        }
+		h2 {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		/*font-family: Arial, sans-serif; */
+    </style>
+</head>
+
+
+
+<body style="background-color:#2d2727;color:#F5F5F5;line-height: 1.6; margin: 0; padding: 0; font-family: "EB Garamond";">  
+    <div class="container">
+    <h1>Robert "Clay" Curtis</h1>
+	<p> I am a Data Scientist based in the Washington, DC area, with expertise in real estate, space planning, and facilities management.<br> 
+    <p>University of Central Florida<br>
+	Bachelors of Science in Aerospace Engineering<br>
+	Minor in Computer Science<br>
+	Concentration in Math</p>
+    
+
+
+    <p>Contact<br>
+
+
+<h2 id="sectionHeading" onclick="toggleDropdown('Experience')">Work Experience</h2>
+    <div id="Experience" class="dropdown-content">
+	
+    <h2>All Native Group - Department of State</h2>
+	<div style="width: 100%; display: flex; justify-content: space-between;">
+		<div style="text-align: left;"><strong>Data Analyst</strong></div>
+		<div style="text-align: right;">November 2022 - Present</div>
+	</div>
+	<i>Arlington, Virginia</i><br>
+
+
+    <ul>
+        <li>Supports the Department of State's Bureau of Overseas Buildings Operations Real Estate Evaluations Division as a Data Analyst.</li>
+        <li>Creates and maintains a portfolio of Power BI dashboards that aid leadership in decision-making and provide relevant information for real estate appraisal work.</li>
+        <li>Acts as a technical reference for the division, providing low-level tech support to other employees, managing group software, evaluating new technology for usefulness to the division, and conducting technical demonstrations to leadership.</li>
+        <li>Leads several automation projects, including the automation of report deliverables using Excel and Power BI.</li>
+        <li>Acts as a liaison between the Evaluations division and other technical divisions within the Bureau, keeping the division leadership informed of technical issues and new developments Bureau-wide.</li>
+        <li>Developed a new methodology for calculating minimum internal rates of return for property investments, resulting in a more accurate analysis. This analysis was incorporated into a Power BI dashboard for easy access to the information.</li>
+        <li>Calculated maximum purchase prices for various residential properties around the world, utilizing real estate market information and State Department-specific factors.</li>
+        <li>Serves as a SharePoint administrator for the division, updating the internal site to provide a more efficient product for other members of the group.</li>
+        <li>Maintains the division's internal Power BI workplace, controlling access and updating dashboards as needed.</li>
+        <li>Coordinates major updates to the site with the SharePoint development team.</li>
+        <li>Consolidates performance information for group members to provide leadership with necessary information for regular performance reviews.</li>
+        <li>Automated the creation of performance reports for the group, utilizing Power BI and SharePoint to control and disseminate the information.</li>
+    </ul>
+	<br>
+	
+    <h2>The Kenific Group - Department of Homeland Security</h2>
+		<div style="width: 100%; display: flex; justify-content: space-between;">
+		<div style="text-align: left;"><strong>Real Property Management System (RPMS) Analyst</strong></div>
+		<div style="text-align: right;">March 2022 - November 2022</div>
+	</div>
+
+    <i>Washington, District of Columbia</i></p>
+
+    <ul>
+        <li>Served as a technical consultant for the IBM TRIRIGA system of record for Immigration and Customs Enforcement, Office of Asset & Facilities Administration.</li>
+        <li>Facilitated the deployment of technical updates to the TRIRIGA Database in an Agile development environment.</li>
+        <li>Interfaced with user groups to collect design requirements for new database functionality.</li>
+        <li>Designed and tested new database functionality in coordination with the development team.</li>
+        <li>Assisted with data loading of leasing and occupancy agreement data from the bi-monthly GSA data exchange process. Also validates that data is loaded correctly into RPMS.</li>
+        <li>Updated the database with new personnel contacts, geographic information, and facility records.</li>
+        <li>Generated a monthly report of all activities our team was involved in.</li>
+        <li>Trained new users on the functionality of TRIRIGA and created user accounts when needed.</li>
+        <li>Created training reference materials for new system functionality.</li>
+        <li>Provided level 1, level 2, and level 3 technical support for RPMS user issues.</li>
+        <li>Drafted and distributed system-wide informational broadcasts and system outage notices.</li>
+    </ul>
+	<br>
+
+    <h2>ALEX Alternative Experts - Department of Defense</h2>
+	<div style="width: 100%; display: flex; justify-content: space-between;">
+		<div style="text-align: left;"><strong>Database Specialist</strong></div>
+		<div style="text-align: right;">September 2019 - March 2022</div>
+	</div>
+    <i>The Pentagon, Arlington, Virginia</i></p>
+
+    <ul>
+        <li>Used IBM TRIRIGA Space Management Software with CAD Integrator and ArcGIS to maintain and update space management drawings for a portfolio of several dozen Department of Defense facilities.</li>
+        <li>Used CAD, GIS, and the TRIRIGA CAFM database to maintain and update 2D architectural, mechanical, electrical, fire protection, and other disciplines of facility infrastructure drawings. These drawings and information were maintained according to AEC CAD, BOMA, and Department standards.</li>
+        <li>Updated several thousand individual space, floor, and building records in the TRIRIGA database.</li>
+        <li>Consolidated information on several large office buildings from different government sources for data loading.</li>
+        <li>Prepared an ArcGIS web Dashboard for presentation purposes with data imported from Excel and TRIRIGA.</li>
+        <li>Generated ArcGIS SQL queries when needed to generate information reports and create presentations.</li>
+        <li>Processed and cleansed data pertaining to the facility-wide sensor information system in Excel. This data was used to identify redundant and outdated sensor packages for renovations.</li>
+        <li>Coordinated with other DoD agencies and groups to streamline the implementation of data from several different sources and in many different formats.</li>
+        <li>Fulfilled service requests for facility information from Department of Defense officials, agencies, and contractors, in accordance with all security classification and document control policies.</li>
+        <li>Maintained a database of technical project files related to major and minor construction projects as well as general maintenance of the facilities; files maintained in compliance with DoD, CAD compliance, and BOMA standards.</li>
+    </ul>
+
+    <i>Raven Rock Mountain Complex, Carroll Valley, Pennsylvania</i>
+
+    <ul>
+        <li>Prepared plans, details, sections, and elevation drawings for various construction disciplines.</li>
+        <li>Conducted field surveys of architectural, mechanical, electrical, HVAC, and fire protection infrastructure to verify and update as-built CAD drawings. Surveys conducted in office, industrial, and communal spaces.</li>
+        <li>Managed the release of data to contractors and chain of custody for sensitive construction documents.</li>
+        <li>Developed a new system for numbering each room in the facility, including unique identifiers for doorways and entrances for emergency preparedness purposes.</li>
+        <li>Digitized and archived historical facility drawings for the purposes of future renovation and construction work.</li>
+        <li>Updated the content and presentation of the facility maps, taking care to not provide information that could compromise the security of the facility.</li>
+        <li>Created GIS maps for all structures on the Complex grounds.</li>
+        <li>Disposed of classified documents and material, in accordance with all U.S. laws and regulations.</li>
+    </ul>
+	<br>
+
+    <h2>GAI Consultants</h2>
+	<div style="width: 100%; display: flex; justify-content: space-between;">
+		<div style="text-align: left;"><strong>Structures CAD Designer</strong></div>
+		<div style="text-align: right;">July 2018 - August 2019</div>
+	</div>
+    <i>Orlando, Florida</i></p>
+
+    <ul>
+        <li>Developed structural plan sheets of concrete and steel bridge structures for Design-Build and Design-Bid-Build projects using AutoCAD and Bentley Microstation software.</li>
+        <li>Examples of projects include new structures, bridge widening, concrete remediation, and pedestrian bridges.</li>
+        <li>Calculated the necessary reinforcing steel for various concrete structures, in accordance with all DOT and AASHTO construction specifications.</li>
+        <li>Created bills of material for the reinforcing steel used inside of concrete structures.</li>
+        <li>Worked with engineering team to design shop drawings for fall protection and temporary construction platforms.</li>
+        <li>Created and maintained a library of standard drawings for prestressed concrete beams; this tool is in the process of being incorporated by the Florida Department of Transportation for use state-wide.</li>
+        <li>Created and maintained a series of Visual Basic for Applications programs to automate the process of properly formatting reinforcing steel bills of material for input in production plan sets.</li>
+        <li>Created and maintained an alternate method of inputting and generating the Bill of Materials for the structural reinforcing steel using Microsoft Excel and VBA scripting.</li>
+        <li>The result of these improvements, over the course of 13 months of employment, saved GAI over $100,000 in billable man-hours, and is currently continuing to save the company time, money, and manpower.</li>
+    </ul>
+	<br>
+
+    <h2>Atlantis Educational Services</h2>
+	<div style="width: 100%; display: flex; justify-content: space-between;">
+		<div style="text-align: left;"><strong>Intern Instructor</strong></div>
+		<div style="text-align: right;">February 2018 - September 2018</div>
+	</div>
+    <i>Kennedy Space Center, Florida</i></p>
+
+    <ul>
+        <li>Repaired and reprogrammed educational robots built around an Arduino microprocessor and a 3D printed chassis. These robots were programmed for autonomous navigation and for remote controlled operation.</li>
+        <li>Educated children in elementary programming and team building.</li>
+        <li>Facilitated classroom discussions related to robotics, programming, and the history of NASA and the U.S. spaceflight program.</li>
+    </ul>
+	<br>
+
+    <h2>Captel Service Specialists</h2>
+	<div style="width: 100%; display: flex; justify-content: space-between;">
+		<div style="text-align: left;"><strong>Captioning Assistant/Training Coach</strong></div>
+		<div style="text-align: right;">August 2015 - July 2018</div>
+	</div>
+    <i>Orlando, Florida</i></p>
+
+    <ul>
+        <li>Used proprietary software to provide closed captioning for hearing impaired customers.</li>
+        <li>Trained new employees on software usage and workplace procedures, including all government regulations.</li>
+    </ul>
+	<br>
+
+    <h2>City of St. Augustine Public Works Department</h2>
+	<div style="width: 100%; display: flex; justify-content: space-between;">
+		<div style="text-align: left;"><strong>Intern</strong></div>
+		<div style="text-align: right;">June 2013 - August 2013</div>
+	</div>
+    <i>St. Augustine, Florida</i></p>
+
+    <ul>
+        <li>Used AutoCAD and ArcGIS to detail civil drawings and utility maps.</li>
+        <li>Converted hard copies of structural diagrams to CAD drawings.</li>
+        <li>Created traffic control construction documents for roadway repair projects.</li>
+    </ul>
+</div>
+
+
+
+
+
+
+<h2 id="sectionHeading" onclick="toggleDropdown('Education')">Education</h2>
+    <div id="Education" class="dropdown-content">
+    <h2>University of Central Florida</h2>
+    <p>Orlando, FL<br>
+    Bachelor of Science in Aerospace Engineering<br>
+    Major GPA: 3.2<br>
+    Degree Obtained May 2019</p>
+
+    <h3>Capstone Project:</h3>
+    <ul>
+        <li>Designed and fabricated a Small Unmanned Aerial System with a team of 5 mechanical and aerospace engineering students. This project involved research into prior works, including a review of existing patents for similar UAV systems; a thorough design study and simulation of the UAV; fabrication of a flightworthy prototype of the aircraft; testing and evaluation of the aircraft performance in comparison to the simulated models; and an NTSB-style accident investigation after the aircraft was destroyed during a routine flight test.</li>
+    </ul>
+
+    <h3>Other Projects:</h3>
+    <ul>
+        <li>Designed a model aircraft and testing rig to investigate the effects of rotating propellers on wing loading and aircraft stability.</li>
+        <li>Developed a system that would capture the excess energy from air displaced by subway trains in tunnels using a windmill device to generate electricity.</li>
+        <li>Designed and fabricated a model of a refrigerator utilizing the refrigeration thermodynamic cycle and the Peltier effect.</li>
+        <li>Simulated a set of differential equations and a spring and damper system. This included fine-tuning the spring and damper factors using control theory.</li>
+        <li>Programmed a wheeled robot to navigate a course and avoid obstacles using infrared sensing.</li>
+        <li>Conducted an experiment on the effectiveness of different fin configurations for heat dissipation purposes.</li>
+        <li>Designed an aircraft wing model and conducted finite element analysis on the internal structure of the wing to maximize structural integrity while reducing weight.</li>
+    </ul>
+
+    <h3>Major Coursework:</h3>
+    <ul>
+        <li>Statics and Dynamics – Mechanics of motion and forces, kinematics, orbital mechanics</li>
+        <li>Thermal Dynamics and Heat Transfer – Thermal properties of materials, heat transmission, thermal cycles</li>
+        <li>Fluid Dynamics and High-Speed Fluid Dynamics – Fluid motion, supersonic flows, shockwaves</li>
+        <li>Control Theory, and Flight Mechanics – Aircraft flight control systems, PID loops, fly-by-wire systems</li>
+        <li>Electrical Engineering – Simple electrical circuits, frequency filters</li>
+        <li>Solid Mechanics, Aerospace Structures, and Aerospace Materials – mechanics of materials, structural design</li>
+        <li>Aerospace Experiments I and II – Proper experimental procedures, data collection, report writing</li>
+        <li>Propulsion Systems – Jet engine cycles and design, complex fluid flow, combustion, nozzle design</li>
+    </ul>
+
+    <h3>Minor in Computer Science</h3>
+    <p>Completed December 2017<br>
+    Minor GPA: 3.0</p>
+
+    <h3>Projects:</h3>
+    <ul>
+        <li>Designed an XML database using Java and created a web interface for others to read data from the database.</li>
+        <li>Designed a logical circuit to simulate a four-way traffic light, including timers, turn lanes, and vehicle sensors.</li>
+        <li>Programmed several different types of data structures, including: AVL trees, binary trees, hash tables, 2-4 trees, Bloom filters, treaps, and skip lists.</li>
+    </ul>
+
+    <h3>Minor Coursework:</h3>
+    <ul>
+        <li>Introduction to Programming with C – programming syntax, dynamic memory allocation</li>
+        <li>Object Oriented Programming – Java encapsulation, inheritance, classes, database management</li>
+        <li>Discrete Data Structures – Discrete logic, mathematical proofs, number theory, discrete probability</li>
+        <li>Computer Logic and Organization – Circuit design, Assembly language programming</li>
+        <li>Computer Science I – Data structures, linked lists, searching and sorting routines, recursion</li>
+        <li>Computer Science II – Complex data structures, algorithm analysis, runtime computation, search trees</li>
+    </ul>
+</div>
+
+
+
+
+
+<h2 id="sectionHeading" onclick="toggleDropdown('Skillset')">Skillset</h2>
+    <div id="Skillset" class="dropdown-content">
+
+    <h3>Professional Software and Project Management</h3>
+    <ul>
+        <li>Microsoft Office Suite
+            <ul>
+                <li>Excel - Pivot tables, lookup functions, VBA scripting</li>
+                <li>Word - Report writing</li>
+                <li>Teams - Scheduling and coordinating meetings</li>
+                <li>SharePoint - Uploading and storing documents, exporting reports</li>
+                <li>PowerPoint - Creating slide decks for presentations and design documents</li>
+                <li>Outlook - Creating outage and inservice notices for customer awareness</li>
+            </ul>
+        </li>
+        <li>Jira - Managing Epics, creating issues</li>
+        <li>Bentley ProjectWise - Managing reference files, organizing project drawings</li>
+    </ul>
+
+    <h3>Data Visualization and Analytics</h3>
+    <ul>
+        <li>IBM TRIRIGA - Project Management, Portfolio and Lease Management, Facilities and Space Management, Operations</li>
+        <li>SQL</li>
+        <li>Power BI</li>
+        <li>Tableau</li>
+    </ul>
+
+    <h3>Drafting, Design, and Simulation</h3>
+    <ul>
+        <li>Autodesk AutoCAD - Xrefs, advanced drafting tools, plan sets, CAD Integrator plugin</li>
+        <li>Autodesk Inventor - 3D modeling</li>
+        <li>ArcGIS Pro - Managing web application, importing CAD and Database info to maps, facility mapping</li>
+        <li>Bentley Microstation - Advanced drafting tools, plan sets, proprietary software plugins, CAD Integrator plugin</li>
+        <li>TRIRIGA CAD Integrator - Polylining, attaching and detaching spaces, gross areas, measured gross areas, generating reports</li>
+        <li>NX Nastran FEA</li>
+        <li>ANSYS Fluent CFD</li>
+        <li>MATLAB - System feedback modeling</li>
+        <li>Simulink - Control theory visualization, feedback systems</li>
+        <li>MathCAD - Numerical methods, analytical solutions</li>
+        <li>SketchUp - 3D modeling, creating cutlists</li>
+    </ul>
+
+    <h3>Programming Languages</h3>
+    <ul>
+        <li>C</li>
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>VBA</li>
+        <li>SQL</li>
+        <li>Javascript</li>
+        <li>Fortran</li>
+        <li>Basic</li>
+        <li>Linux OS</li>
+    </ul>
+
+    <h3>Standards</h3>
+    <ul>
+        <li>U.S. National/AEC CAD Standards</li>
+        <li>Department of State Foreign Affairs Manual</li>
+        <li>International Building Code</li>
+        <li>BOMA Standards</li>
+        <li>ANSI Construction Safety Standards</li>
+        <li>Department of Defense Unified Facilities Criteria</li>
+        <li>FDOT Structures Design Guidelines</li>
+        <li>FDOT Structures Detailing Manual</li>
+    </ul>
+</div>
+	
+	
+    <p>About<br>
+	
+	
+    <script>
+        function toggleDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                dropdown.style.display = "block";
+            } else {
+                dropdown.style.display = "none";
+            }
+        }
+    </script>
+	
+	
 </body>
 </html>
+
