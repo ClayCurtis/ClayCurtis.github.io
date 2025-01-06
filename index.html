@@ -1,283 +1,413 @@
+<!--website - https://order.design/project/washington-metropolitan-area-transit-authority
+professional experience section: overview of all skills and everything good
+"resume" section: list of jobs and work experience - put the college jobs in an "other" section
+https://validator.w3.org/#validate_by_input+with_options
+https://prettier.io/
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Equation Game</title>
-<style>
-    :root {
-        --background-color: #f0f0f0;
-        --card-background: #ffffff;
-        --box-shadow-color: rgba(0, 0, 0, 0.1);
-        --neutral-background: #e9ecef;
-        --primary-color: #007bff;
-        --primary-hover-color: #0056b3;
-        --success-background: #28a745;
-        --success-text-color: #155724;
-        --error-background: #f8d7da;
-        --error-text-color: #721c24;
-        --help-text-color: #666666;
-        --stats-background: #f8f9fa;
-    }
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: var(--background-color);
-        display: flex;
-        justify-content: center;
-    }
-    .game-container {
-        background-color: var(--card-background);
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px var(--box-shadow-color);
-        display: flex;
-        max-width: 800px;
-        width: 100%;
-        gap: 20px;
-    }
-    .game-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .numbers-container {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-    .number-box {
-        width: 50px;
-        height: 50px;
-        background-color: var(--neutral-background);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    .input-container {
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-    }
-    input[type="text"] {
-        padding: 8px;
-        font-size: 16px;
-        width: 300px;
-        margin-right: 10px;
-        flex-grow: 1;
-    }
-    button {
-        padding: 8px 16px;
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: var(--primary-hover-color);
-    }
-    .progress-grid {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(10, 1fr);
-        gap: 8px;
-        width: 380px;
-    }
-    .number-cell {
-        aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--neutral-background);
-        border-radius: 4px;
-        font-size: 14px;
-    }
-    .solved {
-        background-color: var(--success-background);
-        color: white;
-        text-decoration: line-through;
-    }
-    .message {
-        margin: 10px 0;
-        padding: 10px;
-        border-radius: 4px;
-    }
-    .error {
-        background-color: var(--error-background);
-        color: var(--error-text-color);
-    }
-    .success {
-        background-color: var(--success-background);
-        color: var(--success-text-color);
-    }
-    #help-text {
-        font-size: 14px;
-        color: var(--help-text-color);
-        margin-bottom: 10px;
-    }
-    .stats {
-        margin-top: 20px;
-        padding: 10px;
-        background-color: var(--stats-background);
-        border-radius: 4px;
-        text-align: center;
-        width: 380px;
-    }
-</style>
+    <title>Website</title>
+    <style>
+	:root {
+		--wallpaper-color: #e9eae4;
+		--text-color: black;
+		--line-color: #063970;
+		--font-family: "EB Garamond", serif;
+	}
+	body {
+		overflow-y: scroll;
+		background-color: var(--wallpaper-color);
+		color: var(--text-color);
+		line-height: 1.6;
+		margin: 0;
+		padding: 0;
+		font-size: 18px;
+		font-family: var(--font-family);
+		transition: background-color 0.5s ease, color 0.5s ease;
+	}
+	.container {
+		max-width: 850px;
+		margin: 0 auto 100px;
+		padding: 0 20px;
+	}
+	h2, h3 {
+		margin: 0;
+	}	
+	p {
+		margin-top: 0;
+	}
+	ul {
+		margin-top: 0;
+	}
+	.sectionHeading {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	
+	.dropdown-content {
+		max-height: 0;
+		opacity: 0;
+		visibility: hidden;
+		overflow: hidden;
+		transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+	}
+	.dropdown-content.show {
+		max-height: 10000px;
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	.line-shape {
+		height: 100vh;
+		width: 4px;
+		background-color: var(--line-color);
+		position: fixed;
+		top: 0;
+	}  
 
+	.columns {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+	.column, .additional-content {
+		background-color: var(--wallpaper-color);
+		border: 2px solid var(--text-color);
+		border-radius: 5px;
+		margin: 10px 0;
+		color: var(--text-color);
+		box-sizing: border-box;
+	}
+	.column {
+		height: 60px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.additional-content {
+		display: none;
+		opacity: 0;
+		width: 100%;
+		padding: 10px;
+		transition: opacity 0.5s ease;
+	}
+	.additional-content.show {
+		display: block;
+		opacity: 1;
+	}
+	.additional-content p {
+		margin: 0;
+	}	
+	
+	.theme-selector {
+		display: flex;
+		gap: 10px;
+		justify-content: center;
+	}
+	.theme-button {
+		background-color: #a2a2a2;
+		font-size: 12px;
+		height: 30px;
+		width: 60px;
+		border: 2px solid var(--text-color);
+		border-radius: 5px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-color);
+		padding: 0 8px;
+		box-sizing: border-box;
+		transition: background-color 0.3s ease, color 0.3s ease;
+	}
+	.theme-button:hover {
+		background-color: #d2d2d2;
+		color: #000;
+	}
+	.intro-section {
+  text-align: center;
+  width: 100%;
+}
+    </style>
 </head>
-<body>
-    <div class="game-container">
-        <div class="game-content">
-            <div class="numbers-container" id="numbers"></div>
-            
-            <div class="input-container">
-                <div id="help-text">
-                    Use +, -, *, /, ^ (exponent), ! (factorial), % (modulus), and ()
-                </div>
-            </div>            
-			<div class="input-container">
-                <input type="text" id="equation" placeholder="Enter your equation...">
-                <button onclick="checkEquation()">Check</button>
-            </div>
-            
-            <div id="message"></div>
 
-            <div class="stats">
-                Solved: <span id="solved-count">0</span>/100
-            </div>
-        </div>
+<body style="background-color:var(--wallpaper-color); color:var(--text-color); line-height: 1.6; margin: 0; padding: 0; font-family: 'EB Garamond'; "> 
+	<div class="line-shape" style="right: calc(50% - 425px - 40px);"></div>
+	<div class="line-shape" style="left: calc(50% - 425px - 40px);"></div>
+    <div class="container">
+	<br><br>
+    <h1>Robert "Clay" Curtis</h1>
+	<div class="intro-section">
+	  <p><strong>I am a Data Scientist based in the Northeast United States, with experience in the following areas:</strong><br>
+	  Data Analytics - Data Visualization - Database Management - UX Design</p>
+	</div>
 
-        <div class="progress-grid" id="progress"></div>
+
+<h2 class="sectionHeading" onclick="toggleDropdown('Resume')">Resume</h2>
+    <div id="Resume" class="dropdown-content"> 
+	
+    <h2>Department of State</h2>
+	Data Analyst &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(November 2022 - Present)<br>
+
+	<i>Arlington, Virginia</i><br>	
+    <ul>		
+        <li>Supports the Department of State's Bureau of Overseas Buildings Operations Real Estate Evaluations Division as a Data Analyst.</li>
+		<li>Performs analysis on structured and unstructured data to evaluate real estate transactions across the State Department portfolio. This data includes financial, political, project management, budgeting, and more.</li>
+		<li>Develops and implements analytical tools and applications to identify trends, enable data-driven decision-making, evaluate regulatory compliance, and automate the assessment of portfolio and asset performance.</li>
+		<li>Creates data visualizations, reports, and dashboards to support short-term and strategic decision-making and provide recommendations to management.</li>
+		<li>Acts as the lead data analyst for a program to direct financial investment into vulnerable assets based on life safety deficiencies and risk factors. This program covers the State Department’s portfolio of leased and owned assets.</li>
+		<li>Develops the Evaluations division SharePoint site, which includes creating informational dashboards, maintaining the project document library, designing the user interface of the site, and developing PowerApps tools.</li>
+		<li>Establishes and maintains office record-keeping standards, including creating naming conventions, standardized formats for project documents, and ensuring alignment with federal records management requirements.</li>
+		<li>Serves as the technical specialist for the Evaluations division, which includes troubleshooting software issues for the division and coordinating data practices across State Department offices.</li>
+	</ul>
+	<br>
+	
+    <h2>The Kenific Group - Department of Homeland Security</h2>
+	<strong>Real Property Analyst &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(March 2022 - November 2022)</strong><br>
+    <i>Washington, District of Columbia</i><br>
+    <ul>
+		<li>Served as a technical consultant for the IBM TRIRIGA Real Estate, Leasing, and Occupancy database for ICE.</li>
+		<li>Designed and tested new features for the database, including new reporting and analytical tools.</li>
+		<li>Facilitated the deployment of technical updates to the TRIRIGA Database in an Agile development environment.</li>
+		<li>Conducted testing of new database functionality in coordination with the development team.</li>
+		<li>Conducted data loading and transformation from the bi-monthly GSA data exchange process.</li>
+	</ul>
+	<br>
+
+    <h2>ALEX Alternative Experts - Department of Defense</h2>
+	<strong>Database Specialist &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(September 2019 - March 2022)</strong><br>
+    <i>The Pentagon, Arlington, Virginia</i><br>
+	<ul>
+		<li>Used IBM TRIRIGA Space Management Software with CAD Integrator and ArcGIS to maintain and update space management drawings for Department of Defense facilities.</li>
+		<li>Used CAD, GIS, and the TRIRIGA database to maintain and update facility infrastructure data.</li>
+		<li>Prepared ArcGIS web dashboards for presentation purposes with data from Excel, TRIRIGA, and SQL.</li>
+		<li>Fulfilled service requests for facility information from Department of Defense officials, agencies, and contractors.</li>
+	</ul>
+	<br>
+
+    <h2>GAI Consultants</h2>
+	<strong>Structural Designer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(July 2018 - August 2019)</strong><br>
+    <i>Orlando, Florida</i><br>
+    <ul>
+		<li>Developed structural plans of concrete and steel bridge structures using AutoCAD and Microstation software.</li>
+		<li>Created and maintained a series of Excel and VBA programs to automate the bill of materials for projects, saving the GAI over $100,000 in billable man-hours per year.</li>
+	</ul>
+	<br>
+
+    <h2>Atlantis Educational Services</h2>
+	<strong>Intern Instructor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(February 2018 - September 2018)</strong><br>
+    <i>Kennedy Space Center, Florida</i><br>
+    <ul>
+        <li>Repaired and reprogrammed educational robots built around an Arduino microprocessor and a 3D printed chassis. These robots were programmed for autonomous navigation and for remote controlled operation.</li>
+        <li>Facilitated classroom discussions related to robotics, programming, and the history of NASA and the U.S. Space program.</li>
+    </ul>
+	<br>
+
+    <h2>Captel Service Specialists</h2>
+	<strong>Captioning Assistant/Training Coach &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(August 2015 - July 2018)</strong><br>
+    <i>Orlando, Florida</i><br>
+    <ul>
+        <li>Used proprietary software to provide closed captioning for hearing impaired customers.</li>
+        <li>Trained new employees on software usage and workplace procedures, including all government regulations.</li>
+    </ul>
+	<br>
+
+    <h2>City of St. Augustine Public Works Department</h2>
+	<strong>Intern &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(June 2013 - August 2013)</strong><br>
+    <i>St. Augustine, Florida</i><br>
+    <ul>
+        <li>Used AutoCAD and ArcGIS to design and update civil construction drawings and utility maps.</li>
+        <li>Created traffic control construction documents for roadway repair projects.</li>
+    </ul>
+</div>
+
+
+<h2 class="sectionHeading" onclick="toggleDropdown('Education')">Education</h2>
+    <div id="Education" class="dropdown-content">
+	<h2>University of Central Florida</h2>
+	<p>Orlando, FL</p>
+
+	<h3>Bachelor of Science in Aerospace Engineering (May 2019)</h3>
+	<p>Major GPA: 3.2</p>
+
+    <h3>Capstone Project:</h3>
+    <ul>
+        <li>Designed and fabricated a Small Unmanned Aerial System with a team of 5 mechanical and aerospace engineering students. This project involved research into prior works, including a review of existing patents for similar UAV systems; a thorough design study and simulation of the UAV; fabrication of a flightworthy prototype of the aircraft; testing and evaluation of the aircraft performance in comparison to the simulated models; and an NTSB-style accident investigation after the aircraft was destroyed during a routine flight test.</li>
+    </ul>
+
+    <h3>Minor in Computer Science (December 2017)</h3>
+    <p>Minor GPA: 3.0</p>
+
+    <h3>Projects:</h3>
+    <ul>
+        <li>Designed an XML database using Java and created a web interface for others to read data from the database.</li>
+        <li>Programmed several different types of data structures, including: AVL trees, binary trees, hash tables, 2-4 trees, Bloom filters, treaps, and skip lists.</li>
+    </ul>
+
+</div>
+
+
+<h2 class="sectionHeading" onclick="toggleDropdown('Skillset')">Skillset</h2>
+    <div id="Skillset" class="dropdown-content">
+
+    <h3>Professional Software and Project Management</h3>
+    <ul>
+        <li>Microsoft Office Suite
+            <ul>
+                <li>Excel - Pivot tables, lookup functions, VBA scripting</li>
+                <li>Word - Report writing</li>
+                <li>Teams - Scheduling and coordinating meetings</li>
+                <li>SharePoint - Uploading and storing documents, exporting reports</li>
+                <li>PowerPoint - Creating slide decks for presentations and design documents</li>
+                <li>Outlook - Creating outage and inservice notices for customer awareness</li>
+            </ul>
+        </li>
+        <li>Jira - Managing Epics, creating issues</li>
+        <li>Bentley ProjectWise - Managing reference files, organizing project drawings</li>
+        <li>Agile and Waterfall methodologies</li>
+    </ul>
+
+    <h3>Data Visualization and Analytics</h3>
+    <ul>
+        <li>Power BI and Tableau - Dashboard design, programming directly in DAX, M, Power Query, and SQL</li>
+        <li>PowerApps - Designing UX in apps, creating flows, deploying to users</li>
+        <li>ArcGIS Pro- Dashboards, integrating mapping with a database using SQL</li>
+        <li>IBM TRIRIGA - Project Management, Portfolio and Lease Management, Facilities and Space Management, Operations, CAD Integration</li>
+    </ul>
+
+    <h3>Programming Languages</h3>
+    <ul>
+        <li>Python</li>
+        <li>VBA</li>
+        <li>SQL</li>
+        <li>R</li>
+        <li>DAX, M</li>
+        <li>Javascript, HTML, CSS</li>
+        <li>Linux OS</li>
+    </ul>
+	
+    <h3>Drafting, Design, and Simulation</h3>
+    <ul>
+        <li>Autodesk AutoCAD and Bentley Microstation- Advanced drafting tools, plan sets, proprietary software plugins, CAD Integrator plugin</li>
+        <li>Autodesk Inventor, Solidworks, SketchUp - 3D modeling</li>
+        <li>TRIRIGA CAD Integrator - Polylining, attaching and detaching spaces, gross areas, measured gross areas, generating reports</li>
+        <li>MATLAB and MathCAD</li>
+    </ul>
+</div>
+
+<div style="position: relative;">
+    <div class="line-shape" style="position: absolute; right: calc(50% - 425px - 40px); top: 250px; height: 140px; width: 5px; background-color: var(--wallpaper-color);"></div>
+    <div class="line-shape" style="position: absolute; left: calc(50% - 425px - 40px); top: 250px; height: 140px; width: 5px; background-color: var(--wallpaper-color);"></div>
+
+    <div class="line-shape" style="position: absolute; left: 50%; top: 250px; height: 5px; width: calc(100% + 80px); transform: translateX(-50%);">
+        <!--<div style="position: absolute; left: calc(50% - 20px); top: -18px; width: 40px; height: 40px; background-color: var(--line-color); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div>
+        <div style="position: absolute; left: calc(50% - 18px); top: -16px; width: 36px; height: 36px; background-color: var(--wallpaper-color); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div>
+        <div style="position: absolute; left: calc(50% - 8px); top: 2px; width: 16px; height: 8px; background-color: var(--line-color); clip-path: polygon(50% 0%, 100% 60.625%, 89.29% 100%, 50% 50%, 10.71% 100%, 0% 60.625%);"></div>
+        <div style="position: absolute; left: calc(50% - 12px); top: -5px; width: 16px; height: 8px; background-color: var(--line-color); clip-path: polygon(50% 0%, 100% 60.625%, 89.29% 100%, 50% 50%, 10.71% 100%, 0% 60.625%); transform: rotate(120deg);"></div>
+        <div style="position: absolute; left: calc(50% - 4px); top: -5px; width: 16px; height: 8px; background-color: var(--line-color); clip-path: polygon(50% 0%, 100% 60.625%, 89.29% 100%, 50% 50%, 10.71% 100%, 0% 60.625%); transform: rotate(-120deg);"></div>
+    //--></div>
+</div>
+    <br><br><br>
+	<!--
+	<div class="theme-selector">
+        <div class="theme-button" onclick="setTheme('default')">Default</div>
+        <div class="theme-button" onclick="setTheme('dark')">Dark</div>
+        <div class="theme-button" onclick="setTheme('light')">Light</div>
+        <div class="theme-button" onclick="setTheme('retro')">Retro</div>
+        <div class="theme-button" onclick="setTheme('sci-fi')">Sci-Fi</div>
+        <div class="theme-button" onclick="setTheme('novel')">Novel</div>
+        <div class="theme-button" onclick="setTheme('nature')">Nature</div>
     </div>
+	//-->
+<p style="margin: 0; padding: 0; font-size: 16px; text-align: center;">
+<br>
+    This is the personal website of Clay Curtis.<br>
+    This site lives within a single .html file containing all necessary Javascript, HTML, and CSS code.<br>
+    There is no personal data collected from this site.<br>
+</p>
+
+</div> <!--closes the first div at containter? right?-->
 
 <script>
-        let numbers = [];
-        let solved = new Set();
-
-		function generateNumbers() {
-			const availableNumbers = Array.from({length: 9}, (_, i) => i + 1);
-
-			for (let i = availableNumbers.length - 1; i > 0; i--) {
-				const j = Math.floor(Math.random() * (i + 1));
-				[availableNumbers[i], availableNumbers[j]] = [availableNumbers[j], availableNumbers[i]];
-			}
-			
-			numbers = availableNumbers.slice(0, 4).sort((a, b) => a - b); 
-			solved = new Set();
-			updateDisplay();
-		}
-
-		function factorial(n) {
-			if (n < 0) return null;
-			if (n <= 1) return 1;
-			let result = 1;
-			for (let i = 2; i <= n; i++) {
-				result *= i;
-			}
-			return result;
-		}
-
-		function evaluateExpression(expr) {
-			const factorialMatches = expr.match(/(\d+)!/g) || [];
-			const factorialNums = factorialMatches.map(match => parseInt(match.replace('!', '')));
-
-			const factorialExpr = expr.replace(/(\d+)!/g, (match, num) => {
-				const fact = factorial(parseInt(num));
-				return fact !== null ? fact.toString() : match;
-			});
-
-			const finalExpr = factorialExpr.replace(/\^/g, '**');
-
-			try {
-				const extractedNums = finalExpr.match(/\d+/g).map(Number);
-
-				const originalNumSet = new Set(numbers);
-				const extractedNumSet = new Set(extractedNums);
-				const factorialNumSet = new Set(factorialNums);
-
-				const usedNums = new Set([...extractedNumSet, ...factorialNumSet]);
-
-				const isValid = [...originalNumSet].every(num => 
-					extractedNumSet.has(num) || factorialNumSet.has(num)
-				) && usedNums.size === originalNumSet.size;
-
-				if (!isValid) {
-					return null;
-				}
-
-				const result = Math.round(eval(finalExpr) * 1000) / 1000;
-				return result;
-			} catch (e) {
-				return null;
-			}
-		}
-
-
-        function checkEquation() {
-            const equation = document.getElementById('equation').value;
-            const result = evaluateExpression(equation);
-            
-            if (result === null) {
-                showMessage('Invalid equation or not using all numbers exactly once', 'error');
-                return;
-            }
-
-            const wholeResult = Math.round(result);
-            if (wholeResult !== result || wholeResult < 1 || wholeResult > 100) {
-                showMessage(`Equation equals ${result}, which isn't a whole number between 1 and 100`, 'error');
-                return;
-            }
-
-            if (solved.has(wholeResult)) {
-                showMessage(`You've already solved for ${wholeResult}! Try a different number.`, 'error');
-                return;
-            }
-
-            solved.add(wholeResult);
-            document.getElementById('equation').value = '';
-            showMessage(`Great! Your equation equals ${wholeResult}`, 'success');
-            updateDisplay();
-            document.getElementById('solved-count').textContent = solved.size;
-            
-            if (solved.size === 100) {
-                showMessage('Congratulations! You solved all numbers!', 'success');
-            }
+    function toggleDropdown(dropdownId) {
+        var dropdown = document.getElementById(dropdownId);
+        if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+        } else {
+            dropdown.classList.add('show');
         }
-
-        function showMessage(text, type) {
-            const messageDiv = document.getElementById('message');
-            messageDiv.textContent = text;
-            messageDiv.className = 'message ' + type;
-        }
-
-        function updateDisplay() {
-            const numbersContainer = document.getElementById('numbers');
-            numbersContainer.innerHTML = numbers.map(n => 
-                `<div class="number-box">${n}</div>`
-            ).join('');
-
-            // Update progress grid
-            const progressContainer = document.getElementById('progress');
-            progressContainer.innerHTML = Array.from({length: 100}, (_, i) => {
-                const number = i + 1;
-                return `<div class="number-cell ${solved.has(number) ? 'solved' : ''}">${number}</div>`;
-            }).join('');
-        }
-
-        generateNumbers();
-
-        document.getElementById('equation').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkEquation();
+    }
+function toggleContent(id) {
+    const contents = document.querySelectorAll('.additional-content');
+    contents.forEach(content => {
+        if (content.id === id) {
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                setTimeout(() => {
+                    content.style.display = 'none';
+                }, 150); // close all
+            } else {
+                content.style.display = 'block';
+                setTimeout(() => {
+                    content.classList.add('show');
+                }, 200); // appear
             }
-        });
-    </script>
+        } else {
+            content.classList.remove('show');
+            content.style.display = 'none'; // Instantly hide other content
+        }
+    });
+}
+
+function setTheme(theme) {
+    const root = document.documentElement;
+
+    if (theme === 'default') {
+        root.style.setProperty('--wallpaper-color', '#2d2727');
+        root.style.setProperty('--text-color', '#F5F5F5');
+        root.style.setProperty('--line-color', '#8a6f48');
+        root.style.setProperty('--font-family', '"EB Garamond", serif');
+    } else if (theme === 'dark') {
+        root.style.setProperty('--wallpaper-color', '#000000');
+        root.style.setProperty('--text-color', '#FFFFFF');
+        root.style.setProperty('--line-color', '#444444');
+        root.style.setProperty('--font-family', 'Arial, sans-serif');
+    } else if (theme === 'light') {
+        root.style.setProperty('--wallpaper-color', '#FFFFFF');
+        root.style.setProperty('--text-color', '#000000');
+        root.style.setProperty('--line-color', '#BBBBBB');
+        root.style.setProperty('--font-family', '"EB Garamond", serif');
+    } else if (theme === 'retro') {
+        root.style.setProperty('--wallpaper-color', '#1F1F1F');
+        root.style.setProperty('--text-color', '#00FF00');
+        root.style.setProperty('--line-color', '#CCCCCC');
+        root.style.setProperty('--font-family', "'Courier New	', monospace");
+    } else if (theme === 'sci-fi') {
+        root.style.setProperty('--wallpaper-color', '#0B0B0B');
+        root.style.setProperty('--text-color', '#00FFFF');
+        root.style.setProperty('--line-color', '#FF00FF');
+        root.style.setProperty('--font-family', "'Orbitron', sans-serif");
+    } else if (theme === 'novel') {
+        root.style.setProperty('--wallpaper-color', '#F5F5DC');
+        root.style.setProperty('--text-color', '#333333');
+        root.style.setProperty('--line-color', '#8B4513');
+        root.style.setProperty('--font-family', "'Georgia', serif");
+    } else if (theme === 'nature') {
+        root.style.setProperty('--wallpaper-color', '#E6F9D2');
+        root.style.setProperty('--text-color', '#3A5E0E');
+        root.style.setProperty('--line-color', '#A0522D');
+        root.style.setProperty('--font-family', "'Verdana', sans-serif");
+    }
+}
+
+</script>
+
+	
 </body>
 </html>
+
