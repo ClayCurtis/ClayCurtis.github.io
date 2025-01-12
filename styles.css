@@ -1,0 +1,136 @@
+:root {
+    --wallpaper-color: #e9eae4;
+    --text-color: black;
+    --line-color: #063970;
+    --font-family: "EB Garamond", serif;
+}
+
+body {
+    overflow-y: scroll;
+    background-color: var(--wallpaper-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: var(--font-family);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+}
+
+h2, h3 {
+    margin: 0;
+}
+
+p {
+    margin-top: 0;
+}
+
+ul {
+    margin-top: 0;
+}
+
+.sectionHeading {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.dropdown-content.show {
+    max-height: 10000px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.line-shape {
+    height: 100vh;
+    width: 4px;
+    background-color: var(--line-color);
+    position: fixed;
+    top: 0;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.column, .additional-content {
+    background-color: var(--wallpaper-color);
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+    margin: 10px 0;
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+.column {
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.additional-content {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    padding: 10px;
+    transition: opacity 0.5s ease;
+}
+
+.additional-content.show {
+    display: block;
+    opacity: 1;
+}
+
+.additional-content p {
+    margin: 0;
+}
+
+.theme-selector {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.theme-button {
+    background-color: #a2a2a2;
+    font-size: 12px;
+    height: 30px;
+    width: 60px;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    padding: 0 8px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-button:hover {
+    background-color: #d2d2d2;
+    color: #000;
+}
+
+.intro-section {
+    text-align: center;
+    width: 100%;
+}
