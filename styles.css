@@ -22,6 +22,12 @@ body {
     margin: 0 auto 100px;
     padding: 0 20px;
 }
+h1 {
+    letter-spacing: 0.05em;
+    padding-bottom: 0px;
+    border-bottom: 2px solid var(--line-color);
+    display: inline-block;
+}
 
 h2, h3 {
     margin: 0;
