@@ -32,7 +32,13 @@ h1 {
 h2, h3 {
     margin: 0;
 }
+.minor-heading {
+    margin-left: 1.5em;
+}
 
+.minor-detail {
+    margin-left: 1.5em;
+}
 p {
     margin-top: 0;
 }
