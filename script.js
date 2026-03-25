@@ -5,6 +5,7 @@ function toggleDropdown(dropdownId) {
     } else {
         dropdown.classList.add('show');
     }
+    if (window.refreshAsteroidsTargets) refreshAsteroidsTargets();
 }
 
 function toggleContent(id) {

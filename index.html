@@ -11,12 +11,16 @@
 <body>
     <div class="line-shape" style="right: calc(50% - 425px - 40px);"></div>
     <div class="line-shape" style="left: calc(50% - 425px - 40px);"></div>
+	<div class="line-shape" style="position: absolute; left: 50%; top: 40px; height: 5px; width: 925px; transform: translateX(-50%);"></div>
+	<div class="line-shape" style="position: absolute; left: calc(50% - 425px - 40px); top: 00px; height: 40px; width: 5px; background-color: var(--wallpaper-color);"></div>
+	<div class="line-shape" style="position: absolute; right: calc(50% - 425px - 40px); top: 00px; height: 40px; width: 5px; background-color: var(--wallpaper-color);"></div>
+			
     <div class="container">
 	<br><br>
     <h1>Robert "Clay" Curtis</h1>
 	<div class="intro-section">
-		<a href="https://www.linkedin.com/in/clay-curtis-221360160/">LinkedIn</a> | Github | <a href="mailto:robertclaycurtis@gmail.com">Contact</a> <br>
-		<strong>Data Science | Data Visualization | Database Management | UX Design</strong><br><br>
+		<a href="https://www.linkedin.com/in/clay-curtis-221360160/">LinkedIn</a> <span> | </span><span>Github</span><span> | </span> <a href="mailto:robertclaycurtis@gmail.com">Contact</a> <br>
+		<strong>Data Science</strong><strong> | </strong><strong>Data Visualization</strong><strong> | </strong><strong>Database Management</strong><strong> | </strong><strong>UX Design</strong><br><br>
 	</div>
 
 <h2 class="sectionHeading" onclick="toggleDropdown('Experience')">Experience</h2>
@@ -114,7 +118,7 @@
 	<h3>Georgia Institute of Technology - Atlanta, GA</h3>
 	<p>Master of Science in Data Science (Projected Summer 2027)</p>
 	<h3>University of Central Florida - Orlando, FL</h3>
-	Bachelor of Science in Aerospace Engineering (May 2019) | Major GPA: 3.2<br>
+	<span>Bachelor of Science in Aerospace Engineering (May 2019) | Major GPA: 3.2</span><br>
     <p>Minor in Computer Science (December 2017) | Minor GPA: 3.0</p>
 </div>
 
@@ -172,14 +176,20 @@
 	</ul>
 </div>
 
-        <div style="position: relative;">
-            <div class="line-shape" style="position: absolute; right: calc(50% - 425px - 40px); top: 250px; height: 140px; width: 5px; background-color: var(--wallpaper-color);"></div>
-            <div class="line-shape" style="position: absolute; left: calc(50% - 425px - 40px); top: 250px; height: 140px; width: 5px; background-color: var(--wallpaper-color);"></div>
-            <div class="line-shape" style="position: absolute; left: 50%; top: 250px; height: 5px; width: calc(100% + 80px); transform: translateX(-50%);"></div>
-        </div>
-        <br><br><br><br><br><br>
+<div style="position: relative;">
+	<div class="line-shape" style="position: absolute; right: calc(50% - 425px - 40px); top: 250px; height: 140px; width: 5px; background-color: var(--wallpaper-color);"></div>
+	<div class="line-shape" style="position: absolute; left: calc(50% - 425px - 40px); top: 250px; height: 140px; width: 5px; background-color: var(--wallpaper-color);"></div>
+	<div class="line-shape" style="position: absolute; left: 50%; top: 250px; height: 5px; width: calc(100% + 80px); transform: translateX(-50%);"></div>
+	<div id="asteroids-trigger" onclick="launchAsteroids()" style="position: absolute; left: 50%; top: 248px; transform: translateX(-50%) translateY(-50%) rotate(-90deg); cursor: default; user-select: none; z-index: 10; line-height: 0;">
+		<svg id="asteroids-trigger-svg" width="28" height="28" viewBox="-14 -14 28 28" xmlns="http://www.w3.org/2000/svg">
+		<polygon points="14,0 -9.8,-8.4 -4.2,0 -9.8,8.4" fill="#063970" stroke="#063970" stroke-width="2" stroke-linejoin="round"/>
+		</svg>
+	</div>	
+</div>
+<br><br><br><br><br><br>
 
     </div>
     <script src="script.js"></script>
+	<script src="asteroids.js"></script>
 </body>
 </html>
